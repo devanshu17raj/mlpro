@@ -5,5 +5,5 @@ matplotlib
 scikit-learn
 catboost
 xgboost
-Flaskpip
--e .
+Flask  # Or remove this line if not needed
+-e .   # Or your project's local install line, if applicable
