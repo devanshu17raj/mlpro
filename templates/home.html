@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+    <!-- Tailwind CSS CDN for a modern and responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles can be added here if needed */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, #50C878, #34a853);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg mx-4">
+        <h1 class="text-3xl font-extrabold text-gray-800 text-center mb-6">Student Performance Predictor</h1>
+        <p class="text-center text-gray-600 mb-8">Enter the student's details below to predict their math score.</p>
+
+        <form action="/predictdata" method="post" class="space-y-6">
+            <!-- Gender -->
+            <div>
+                <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                <select id="gender" name="gender" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- Race/Ethnicity -->
+            <div>
+                <label for="ethnicity" class="block text-sm font-medium text-gray-700 mb-1">Race/Ethnicity</label>
+                <select id="ethnicity" name="race_ethnicity" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <!-- Parental Level of Education -->
+            <div>
+                <label for="parental_education" class="block text-sm font-medium text-gray-700 mb-1">Parental Level of Education</label>
+                <select id="parental_education" name="parental_level_of_education" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="bachelor's degree">Bachelor's Degree</option>
+                    <option value="some college">Some College</option>
+                    <option value="master's degree">Master's Degree</option>
+                    <option value="associate's degree">Associate's Degree</option>
+                    <option value="high school">High School</option>
+                    <option value="some high school">Some High School</option>
+                </select>
+            </div>
+
+            <!-- Lunch -->
+            <div>
+                <label for="lunch" class="block text-sm font-medium text-gray-700 mb-1">Lunch</label>
+                <select id="lunch" name="lunch" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                </select>
+            </div>
+
+            <!-- Test Preparation Course -->
+            <div>
+                <label for="test_preparation" class="block text-sm font-medium text-gray-700 mb-1">Test Preparation Course</label>
+                <select id="test_preparation" name="test_preparation_course" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <!-- Reading Score -->
+            <div>
+                <label for="reading_score" class="block text-sm font-medium text-gray-700 mb-1">Reading Score</label>
+                <input type="number" id="reading_score" name="reading_score" min="0" max="100" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+            </div>
+
+            <!-- Writing Score -->
+            <div>
+                <label for="writing_score" class="block text-sm font-medium text-gray-700 mb-1">Writing Score</label>
+                <input type="number" id="writing_score" name="writing_score" min="0" max="100" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+            </div>
+
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-br hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                Predict Math Score
+            </button>
+        </form>
+
+        <!-- Prediction Result Display Area -->
+        <!-- This will be populated by your backend framework -->
+        <div id="prediction_result" class="mt-8">
+            <h2 class="text-xl font-bold text-gray-800 text-center">Prediction Result</h2>
+            <div class="mt-4 p-4 text-center rounded-lg bg-gray-50 border border-gray-200">
+                <p class="text-gray-500">The predicted math score is {{results}}.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
